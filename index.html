@@ -1,146 +1,285 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10131f">
-<title>EXTREME STUDIO — Creative Workspace</title>
-<style>
-:root{color-scheme:dark;--bg:#0d1020;--panel:#151a2c;--panel2:#202740;--text:#f3f5ff;--muted:#9ba5c1;--line:#2a3350;--accent:#8b7cff;--teal:#52d6c7;--danger:#ff647c}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#29234c 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.layout{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;padding:22px 16px;background:#101426f2;border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:5;backdrop-filter:blur(16px)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1.3px;padding:3px 8px 26px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2px}.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--teal));font-size:23px}.nav-label,.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:800;color:var(--muted)}.nav-label{padding:0 12px}.navigation{display:grid;gap:5px}.nav-link{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid transparent;border-radius:12px;color:#aeb8d2}.nav-link span{width:23px;text-align:center;font-size:18px}.nav-link:hover,.nav-link.active{background:#8b7cff20;border-color:#8b7cff45;color:white}.sidebar-bottom{margin-top:auto}.sidebar-note{padding:14px;border:1px solid var(--line);border-radius:15px;background:#8b7cff0e}.sidebar-note p{font-size:12px;color:var(--muted);margin:5px 0 0}.add-feature{width:100%;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);color:var(--text)}.sidebar-version{text-align:center;color:#687391;font-size:9px;letter-spacing:1px;margin-top:15px}.main-content{margin-left:245px;padding:27px clamp(16px,4vw,50px) 20px;max-width:1700px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;gap:15px}.welcome h1{font-size:clamp(24px,3vw,34px);line-height:1.15;margin:4px 0}.welcome p:last-child{margin:6px 0;color:var(--muted)}.profile{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--teal));font-weight:900}.hero{position:relative;overflow:hidden;min-height:250px;border:1px solid #8b7cff45;border-radius:23px;padding:clamp(22px,4vw,42px);background:linear-gradient(110deg,#242346,#252b4c 55%,#15505b);display:flex;align-items:center}.hero-content{position:relative;z-index:1}.tag{display:inline-block;padding:6px 10px;border:1px solid #ffffff35;border-radius:99px;font-size:10px;letter-spacing:1.4px}.hero h2{font-size:clamp(34px,4vw,50px);line-height:1.05;letter-spacing:-1px;margin:17px 0 10px}.hero p{color:#c7cde1}.hero-art{position:absolute;right:9%;top:50%;transform:translateY(-50%);width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c2baff,#8b7cff 28%,#4d4d8c 50%,#2b8792 72%,#173e59);box-shadow:0 0 70px #8b7cff40}.hero-art:before,.hero-art:after{content:"";position:absolute;inset:-20px;border:1px solid #ffffff44;border-radius:50%;transform:scaleY(.4) rotate(-25deg)}.hero-art:after{transform:scaleY(.7) rotate(35deg)}.hero-index{position:absolute;right:18px;bottom:15px;font-size:10px;letter-spacing:2px;color:#ffffff99}.primary,.upload-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--accent),#6d5ded);color:white;border:0;border-radius:11px;padding:10px 14px;font-weight:750;cursor:pointer}.primary:hover,.upload-button:hover{filter:brightness(1.12);transform:translateY(-1px)}.section-title{display:flex;align-items:end;justify-content:space-between;margin:31px 0 16px}.section-title h2{font-size:28px;margin:3px 0}.section-title p:last-child{color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card,.panel{min-width:0;padding:19px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#171c30,#13182a)}.card:hover{border-color:#8b7cff70}.card-top{display:flex;align-items:center;justify-content:space-between}.icon{width:41px;height:41px;display:grid;place-items:center;border-radius:13px;font-size:21px}.green{background:#52d6c71b;color:var(--teal)}.blue{background:#68a5ff1b;color:#79b2ff}.yellow{background:#ffd1661b;color:#ffd166}.purple{background:#b09cff1b;color:#b6a4ff}.card-number{font-size:11px;color:#707b99;letter-spacing:1.5px}.card h3{margin:14px 0 4px}.card>p{font-size:13px;color:var(--muted);margin:0 0 15px}.page{display:none;animation:fade .2s}.page.active{display:block}@keyframes fade{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:none}}.page-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:12px 0 18px}.page-heading h2{font-size:29px;margin:0}.page-heading p{color:var(--muted);margin:4px 0}.field,textarea,select{width:100%;min-width:0;color:var(--text);background:#0e1324;border:1px solid var(--line);border-radius:10px;padding:10px 12px;outline:none}.field:focus,textarea:focus,select:focus{border-color:var(--accent)}textarea{resize:vertical}.file-input{display:none}.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}.toolbar .field{flex:1;min-width:145px}.secondary,.danger,.tiny,.action-button{border:1px solid var(--line);border-radius:10px;padding:8px 11px;background:#222942;color:var(--text);font-weight:700}.danger{background:#ff647c16;color:#ff9aaa;border-color:#ff647c44}.action-button{background:#8b7cff20;border-color:#8b7cff55}.status{font-size:11px;color:var(--teal)}.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px}.media-card{min-width:0;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#101528}.media-card img,.media-card video{display:block;width:100%;height:140px;object-fit:cover;background:#080b14}.media-card video{object-fit:contain}.media-meta{padding:10px}.media-meta strong{display:block;font-size:12px;overflow-wrap:anywhere}.media-meta small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.media-actions{display:flex;align-items:center;gap:6px;margin-top:9px;flex-wrap:wrap}.check{accent-color:var(--accent);width:16px;height:16px}.empty{padding:25px 12px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px;grid-column:1/-1}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}.stat{padding:15px;border:1px solid var(--line);border-radius:15px;background:#171c30}.stat strong{display:block;font-size:26px}.stat span{font-size:12px;color:var(--muted)}.recent-section{display:flex;align-items:center;gap:14px;margin-top:22px;padding:18px;border:1px solid var(--line);border-radius:17px;background:#8b7cff10}.recent-symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#8b7cff20;font-size:22px}.recent-section h2{font-size:18px;margin:2px 0}.recent-section p:last-child{color:var(--muted);font-size:12px;margin:0}.recent-decoration{margin-left:auto;color:var(--teal);font-size:25px}.saved-list{display:grid;gap:10px}.saved-item{padding:14px;border:1px solid var(--line);border-radius:12px;background:#11172a}.saved-item h4{margin:0 0 5px;overflow-wrap:anywhere}.saved-item p{white-space:pre-wrap;overflow-wrap:anywhere;color:#c2c9dd;margin:0 0 8px}.saved-item small{color:var(--muted)}.saved-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.stats + .recent-section{margin-bottom:10px}footer{padding:24px 0 8px;color:#687391;font-size:10px;letter-spacing:1px}.toast{display:none;position:fixed;right:18px;bottom:18px;z-index:20;max-width:calc(100vw - 36px);padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:#252c45;box-shadow:0 15px 40px #0005}.toast.show{display:block}.modal{display:none;position:fixed;inset:0;z-index:30;background:#03050bcc;place-items:center;padding:18px}.modal.show{display:grid}.modal-box{width:min(430px,100%);padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.modal-box p{color:var(--muted)}.modal-actions{display:flex;justify-content:flex-end;gap:8px}.light{color-scheme:light;--bg:#f2f4fb;--panel:#fff;--panel2:#f4f5ff;--text:#20243a;--muted:#68718d;--line:#dfe3f0;background:radial-gradient(ellipse at 80% 0,#dedbff 0,transparent 38%),var(--bg)}.light .sidebar{background:#ffffffed}.light .card,.light .panel{background:#fff}.light .field,.light textarea,.light select{background:#fff}.light .saved-item,.light .stat{background:#f7f8ff}.light .secondary,.light .tiny{background:#f4f5ff;color:var(--text)}.light .saved-item p{color:#454c65}
-@media(max-width:900px){.sidebar{width:205px}.main-content{margin-left:205px;padding:22px}.hero-art{right:-15px;opacity:.55}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:680px){.sidebar{position:sticky;top:0;width:auto;height:auto;padding:9px 10px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 3px 8px;font-size:14px}.brand-mark{width:32px;height:32px}.sidebar .nav-label,.sidebar-bottom{display:none}.navigation{display:flex;overflow-x:auto;gap:5px}.nav-link{white-space:nowrap;padding:8px;font-size:12px}.nav-link span{width:auto;font-size:15px}.main-content{margin:0;padding:16px 12px}.welcome h1{font-size:23px}.welcome .eyebrow{font-size:8px}.welcome p:last-child{font-size:12px}.hero{min-height:225px;padding:21px}.hero h2{font-size:36px}.hero-art{width:130px;height:130px;right:-45px;opacity:.35}.cards{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:12px}.stat strong{font-size:22px}.recent-decoration{display:none}.page-heading h2{font-size:25px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1020">
+    <title>Extreme Studio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="layout">
-<aside class="sidebar">
-<a class="brand" href="#home" data-page="home"><span class="brand-mark">✦</span><span>EXTREME<small>CREATIVE STUDIO</small></span></a>
-<p class="nav-label">WORKSPACE</p>
-<nav class="navigation" aria-label="Main navigation">
-<a class="nav-link active" href="#home" data-page="home"><span>▦</span> Dashboard</a>
-<a class="nav-link" href="#image" data-page="image"><span>▧</span> Image Studio</a>
-<a class="nav-link" href="#files" data-page="files"><span>▷</span> Video &amp; Files</a>
-<a class="nav-link" href="#notes" data-page="notes"><span>▤</span> Information Center</a>
-<a class="nav-link" href="#design" data-page="design"><span>▣</span> Print &amp; Design</a>
-<a class="nav-link" href="#manager" data-page="manager"><span>▥</span> File Manager</a>
-<a class="nav-link" href="#settings" data-page="settings"><span>⚙</span> Settings</a>
-</nav>
-<div class="sidebar-bottom"><div class="sidebar-note"><span style="color:var(--teal)">✳</span><p>A little space for your big ideas.</p></div><button class="add-feature" id="addFeature">＋ Add Feature</button><p class="sidebar-version">YOUR SPACE TO MAKE THINGS</p></div>
-</aside>
-<main class="main-content">
-<header class="topbar"><div class="welcome"><p class="eyebrow">YOUR CREATIVE WORKSPACE</p><h1 id="welcomeTitle">Welcome, Creator ✨</h1><p>Everything you need, all in one place.</p></div><div class="profile">ES</div></header>
-<section class="page active" id="page-home">
-<div class="hero"><div class="hero-content"><span class="tag">✳ A SPACE TO MAKE</span><h2>Make Something<br>Extraordinary.</h2><p>Turn your ideas into beautiful creations.</p><button class="primary" data-page="image">Explore Studio ↗</button></div><div class="hero-art"></div><span class="hero-index">01 / CREATE</span></div>
-<div class="section-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Your Tools<span style="color:var(--accent)">.</span></h2><p>Choose a workspace to get started.</p></div></div>
-<div class="cards">
-<article class="card"><div class="card-top"><div class="icon green">▧</div><span class="card-number">01</span></div><h3>Image Studio</h3><p>Upload, preview and manage many images.</p><button class="primary" data-page="image">Open Image Studio ↗</button></article>
-<article class="card"><div class="card-top"><div class="icon blue">▷</div><span class="card-number">02</span></div><h3>Video &amp; Files</h3><p>Play videos and organize documents.</p><button class="primary" data-page="files">Open Files ↗</button></article>
-<article class="card"><div class="card-top"><div class="icon yellow">▤</div><span class="card-number">03</span></div><h3>Information Center</h3><p>Save, edit, search and delete notes.</p><button class="primary" data-page="notes">Open Information ↗</button></article>
-<article class="card"><div class="card-top"><div class="icon purple">▣</div><span class="card-number">04</span></div><h3>Print &amp; Design</h3><p>Save ideas and project briefs.</p><button class="primary" data-page="design">Open Design ↗</button></article>
-</div>
-<div class="stats"><div class="stat"><strong id="statImages">0</strong><span>Images saved</span></div><div class="stat"><strong id="statVideos">0</strong><span>Videos saved</span></div><div class="stat"><strong id="statFiles">0</strong><span>Other files</span></div><div class="stat"><strong id="statNotes">0</strong><span>Notes &amp; briefs</span></div></div>
-<section class="recent-section"><div class="recent-symbol">↗</div><div><p class="eyebrow">YOUR DESK</p><h2>Recent Workspace</h2><p id="recentText">Your saved files and notes will appear here.</p></div><span class="recent-decoration">✳</span></section>
-</section>
-<section class="page" id="page-image">
-<div class="page-heading"><div><p class="eyebrow">CREATIVE ASSETS</p><h2>Image Studio</h2><p>Upload multiple images, preview them and remove any you choose.</p></div><label class="upload-button" for="imageUpload">＋ Add images</label><input class="file-input" id="imageUpload" type="file" accept="image/*" multiple></div>
-<div class="panel"><div class="toolbar"><input class="field" id="imageSearch" placeholder="Search images by name…"><button class="secondary" id="imageSelectAll">Select all</button><button class="danger" id="imageDeleteSelected">Delete selected</button><span class="status" id="imageCount">0 images</span></div><div id="imageGrid" class="preview-grid"></div></div>
-</section>
-<section class="page" id="page-files">
-<div class="page-heading"><div><p class="eyebrow">YOUR MEDIA LIBRARY</p><h2>Video &amp; Files</h2><p>Add multiple videos, documents and other files. Videos have playback controls.</p></div><label class="upload-button" for="fileUpload">＋ Add files</label><input class="file-input" id="fileUpload" type="file" multiple></div>
-<div class="panel"><div class="toolbar"><input class="field" id="fileSearch" placeholder="Search files by name…"><select id="fileFilter" class="field" style="width:auto;flex:0 1 150px"><option value="all">All files</option><option value="video">Videos</option><option value="document">Documents</option><option value="other">Other files</option></select><button class="secondary" id="fileSelectAll">Select all</button><button class="danger" id="fileDeleteSelected">Delete selected</button><span class="status" id="fileCount">0 files</span></div><div id="fileGrid" class="preview-grid"></div></div>
-</section>
-<section class="page" id="page-notes">
-<div class="page-heading"><div><p class="eyebrow">IDEAS &amp; KNOWLEDGE</p><h2>Information Center</h2><p>Notes are saved in this browser. Create, edit, search and delete them.</p></div></div>
-<div class="panel"><h3 id="noteFormTitle">Create a note</h3><input id="noteTitle" class="field" placeholder="Note title" style="margin-bottom:10px"><textarea id="noteBody" rows="5" placeholder="Write your information here…"></textarea><div class="toolbar" style="margin-top:10px;margin-bottom:0"><button class="primary" id="noteSave">Save note</button><button class="secondary" id="noteCancel" hidden>Cancel edit</button><span id="noteStatus" class="status"></span></div></div>
-<div class="panel"><div class="toolbar"><input class="field" id="noteSearch" placeholder="Search saved notes…"></div><div id="notesList" class="saved-list"></div></div>
-</section>
-<section class="page" id="page-design">
-<div class="page-heading"><div><p class="eyebrow">MAKE IT REAL</p><h2>Print &amp; Design</h2><p>Save briefs for posters, banners, signboards and more.</p></div></div>
-<div class="panel"><h3 id="briefFormTitle">New design brief</h3><input id="briefTitle" class="field" placeholder="Project name" style="margin-bottom:10px"><select id="briefType" class="field" style="margin-bottom:10px"><option>Poster</option><option>Banner</option><option>Signboard</option><option>Logo</option><option>Social media design</option><option>Other</option></select><textarea id="briefBody" rows="4" placeholder="Describe colors, size, text and style…"></textarea><div class="toolbar" style="margin-top:10px;margin-bottom:0"><button class="primary" id="briefSave">Save brief</button><button class="secondary" id="briefCancel" hidden>Cancel edit</button><span id="briefStatus" class="status"></span></div></div>
-<div class="panel"><div class="toolbar"><input class="field" id="briefSearch" placeholder="Search design briefs…"></div><div id="briefList" class="saved-list"></div></div>
-</section>
-<section class="page" id="page-manager"><div class="page-heading"><div><p class="eyebrow">ALL YOUR ASSETS</p><h2>File Manager</h2><p>Search all uploads and delete selected items together.</p></div></div><div class="panel"><div class="toolbar"><input id="managerSearch" class="field" placeholder="Search all files…"><button class="secondary" id="managerSelectAll">Select all visible</button><button class="danger" id="managerDelete">Delete selected</button></div><div id="managerGrid" class="preview-grid"></div></div></section>
-<section class="page" id="page-settings">
-<div class="page-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Settings</h2><p>Customize your local workspace.</p></div></div>
-<div class="panel"><h3>Appearance</h3><p>Choose your preferred theme.</p><div class="toolbar"><button class="primary" id="darkTheme">🌙 Dark theme</button><button class="secondary" id="lightTheme">☀️ Light theme</button></div></div>
-<div class="panel"><h3>Storage information</h3><p id="storageInfo">Checking browser storage…</p><p>Files are stored in this browser using IndexedDB. Notes and briefs use local browser storage. Clearing browser data may delete them. This app does not sync to the cloud.</p><div class="toolbar"><button class="secondary" id="exportData">Export notes &amp; briefs (JSON)</button><button class="danger" id="clearAll">Delete all app data</button></div></div>
-<div class="panel"><h3>About</h3><p>EXTREME STUDIO · Personal creative workspace · Runs locally in your browser.</p></div>
-</section>
-<footer>© 2026 EXTREME STUDIO · YOUR CREATIVE SPACE</footer>
-</main></div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<div class="modal" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle"><div class="modal-box"><h3 id="confirmTitle">Confirm delete</h3><p id="confirmText">Are you sure?</p><div class="modal-actions"><button class="secondary" id="confirmCancel">Cancel</button><button class="danger" id="confirmOk">Delete</button></div></div></div>
-<script>
-'use strict';
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const DB='extreme-studio-db', STORE='assets', NOTES='extreme-studio-notes-v1', BRIEFS='extreme-studio-briefs-v1', THEME='extreme-studio-theme';
-let db,assets=[],notes=[],briefs=[],editNote=null,editBrief=null,pendingAction=null,toastTimer;
-const uid=()=>Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sizeText=n=>n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':n<1073741824?(n/1048576).toFixed(1)+' MB':(n/1073741824).toFixed(2)+' GB';
-function toast(s){const e=$('#toast');e.textContent=s;e.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>e.classList.remove('show'),3000)}
-function load(key){try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return []}}
-function save(key,val){try{localStorage.setItem(key,JSON.stringify(val));return true}catch{toast('Browser storage is full. Export or delete some notes.');return false}}
-function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window))return reject(Error('IndexedDB unavailable'));const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE,{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
-function dbOp(mode,fn){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,mode),st=tx.objectStore(STORE);let req;try{req=fn(st)}catch(e){reject(e);return}if(req){req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)}else{tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error)}})}
-function kind(file){if(file.type.startsWith('image/'))return'image';if(file.type.startsWith('video/'))return'video';if(/pdf|document|word|sheet|excel|presentation|powerpoint|json|csv|officedocument/i.test(file.type+' '+file.name)||file.type.startsWith('text/'))return'document';return'other'}
-async function refreshAssets(){assets=await dbOp('readonly',s=>s.getAll())||[];renderAll()}
-function ask(message,action){$('#confirmText').textContent=message;pendingAction=action;$('#confirmModal').classList.add('show');$('#confirmOk').focus()}
-$('#confirmCancel').onclick=()=>{$('#confirmModal').classList.remove('show');pendingAction=null};
-$('#confirmModal').addEventListener('click',e=>{if(e.target===$('#confirmModal'))$('#confirmCancel').click()});
-$('#confirmOk').onclick=async()=>{const a=pendingAction;pendingAction=null;$('#confirmModal').classList.remove('show');if(a)await a()};
-function go(page){if(!$('#page-'+page))page='home';$$('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));$$('.nav-link').forEach(a=>a.classList.toggle('active',a.dataset.page===page));$('#welcomeTitle').textContent=({home:'Welcome, Creator ✨',image:'Image Studio',files:'Video & Files',notes:'Information Center',design:'Print & Design',manager:'File Manager',settings:'Settings'})[page];history.replaceState(null,'','#'+page);window.scrollTo({top:0,behavior:'smooth'});if(page==='manager')renderManager()}
-document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();go(b.dataset.page)}});
-window.addEventListener('hashchange',()=>{const p=location.hash.slice(1);if($('#page-'+p))go(p)});
-function checked(container){return $$('#'+container+' [data-check]:checked').map(e=>e.dataset.check)}
-function mediaCard(a,where){let preview='';if(a.kind==='image'){const url=URL.createObjectURL(a.blob);preview=`<img src="${url}" alt="${esc(a.name)}" loading="lazy">`}else if(a.kind==='video'){const url=URL.createObjectURL(a.blob);preview=`<video src="${url}" controls preload="metadata"></video>`}else{preview=`<div style="height:140px;display:grid;place-items:center;font-size:42px;background:#11172a">${a.kind==='document'?'📄':'📦'}</div>`}
-return `<article class="media-card">${preview}<div class="media-meta"><strong title="${esc(a.name)}">${esc(a.name)}</strong><small>${esc(a.kind)} · ${sizeText(a.size)}</small><div class="media-actions"><input class="check" type="checkbox" aria-label="Select ${esc(a.name)}" data-check="${a.id}"><button class="tiny danger" data-delete-asset="${a.id}">Delete</button>${a.kind==='document'&&a.blob.type.startsWith('text/')?`<button class="tiny" data-view-text="${a.id}">View</button>`:''}</div></div></article>`}
-function drawAssets(gridId,items){const el=$('#'+gridId);if(!items.length){el.innerHTML='<div class="empty">No files here yet. Use the upload button to add files.</div>';return}el.innerHTML=items.map(a=>mediaCard(a,gridId)).join('')}
-function renderImages(){const q=$('#imageSearch').value.toLowerCase();const list=assets.filter(a=>a.kind==='image'&&a.name.toLowerCase().includes(q));drawAssets('imageGrid',list);$('#imageCount').textContent=list.length+' images'}
-function renderFiles(){const q=$('#fileSearch').value.toLowerCase(),f=$('#fileFilter').value;const list=assets.filter(a=>a.kind!=='image'&&a.name.toLowerCase().includes(q)&&(f==='all'||a.kind===f));drawAssets('fileGrid',list);$('#fileCount').textContent=list.length+' files'}
-function renderManager(){const q=$('#managerSearch').value.toLowerCase();drawAssets('managerGrid',assets.filter(a=>a.name.toLowerCase().includes(q)))}
-function renderNotes(){const q=$('#noteSearch').value.toLowerCase();const list=notes.filter(n=>(n.title+' '+n.body).toLowerCase().includes(q));$('#notesList').innerHTML=list.length?list.map(n=>`<article class="saved-item"><h4>${esc(n.title)}</h4><p>${esc(n.body)}</p><small>Updated ${new Date(n.updated).toLocaleString()}</small><div class="saved-actions"><button class="secondary" data-edit-note="${n.id}">Edit</button><button class="danger" data-delete-note="${n.id}">Delete</button></div></article>`).join(''):'<div class="empty">No notes found. Create your first note above.</div>'}
-function renderBriefs(){const q=$('#briefSearch').value.toLowerCase();const list=briefs.filter(b=>(b.title+' '+b.type+' '+b.body).toLowerCase().includes(q));$('#briefList').innerHTML=list.length?list.map(b=>`<article class="saved-item"><h4>${esc(b.title)} · ${esc(b.type)}</h4><p>${esc(b.body)}</p><small>Updated ${new Date(b.updated).toLocaleString()}</small><div class="saved-actions"><button class="secondary" data-edit-brief="${b.id}">Edit</button><button class="danger" data-delete-brief="${b.id}">Delete</button></div></article>`).join(''):'<div class="empty">No design briefs found. Create one above.</div>'}
-function renderStats(){$('#statImages').textContent=assets.filter(a=>a.kind==='image').length;$('#statVideos').textContent=assets.filter(a=>a.kind==='video').length;$('#statFiles').textContent=assets.filter(a=>!['image','video'].includes(a.kind)).length;$('#statNotes').textContent=notes.length+briefs.length;$('#recentText').textContent=assets.length?`${assets.length} uploaded file(s) · ${notes.length} note(s) · ${briefs.length} design brief(s).`:`${notes.length} note(s) and ${briefs.length} design brief(s) saved. Add files to start your library.`;$('#storageInfo').textContent=`${assets.length} uploaded file(s) · ${sizeText(assets.reduce((sum,a)=>sum+a.size,0))} total file size` }
-function renderAll(){renderImages();renderFiles();renderNotes();renderBriefs();renderManager();renderStats()}
-async function addFiles(fileList,expected){const files=[...fileList];if(!files.length)return;let added=0;for(const file of files){if(expected&&kind(file)!=='image')continue;const a={id:uid(),name:file.name,size:file.size,type:file.type||'application/octet-stream',kind:kind(file),blob:file,created:Date.now()};try{await dbOp('readwrite',s=>s.put(a));added++}catch(e){toast('Could not save '+file.name+'. Browser storage may be full.');break}}await refreshAssets();toast(added?`${added} file(s) added and saved in this browser.`:'No supported files were added.');}
-$('#imageUpload').addEventListener('change',e=>{addFiles(e.target.files,true);e.target.value=''});
-$('#fileUpload').addEventListener('change',e=>{addFiles(e.target.files,false);e.target.value=''});
-async function deleteIds(ids){if(!ids.length){toast('Select at least one file first.');return}ask(`Permanently delete ${ids.length} selected file(s) from this browser?`,async()=>{for(const id of ids)await dbOp('readwrite',s=>s.delete(id));await refreshAssets();toast(`${ids.length} file(s) deleted.`)})}
-document.addEventListener('click',e=>{
-const del=e.target.closest('[data-delete-asset]');if(del)deleteIds([del.dataset.deleteAsset]);
-const txt=e.target.closest('[data-view-text]');if(txt){const a=assets.find(x=>x.id===txt.dataset.viewText);if(a){const w=window.open('','_blank');if(w){w.document.write('<pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:14px system-ui;padding:20px"></pre>');w.document.querySelector('pre').textContent='';a.blob.text().then(t=>w.document.querySelector('pre')&&(w.document.querySelector('pre').textContent=t));}else toast('Pop-up blocked by browser.')}} 
-const en=e.target.closest('[data-edit-note]');if(en)editNoteForm(en.dataset.editNote);
-const dn=e.target.closest('[data-delete-note]');if(dn){const id=dn.dataset.deleteNote;ask('Delete this note permanently?',()=>{notes=notes.filter(n=>n.id!==id);save(NOTES,notes);renderAll();toast('Note deleted.')})}
-const eb=e.target.closest('[data-edit-brief]');if(eb)editBriefForm(eb.dataset.editBrief);
-const dbtn=e.target.closest('[data-delete-brief]');if(dbtn){const id=dbtn.dataset.deleteBrief;ask('Delete this design brief permanently?',()=>{briefs=briefs.filter(b=>b.id!==id);save(BRIEFS,briefs);renderAll();toast('Design brief deleted.')})}
-});
-function toggleVisible(container){const boxes=$$('#'+container+' [data-check]');if(!boxes.length)return toast('No files to select.');const shouldCheck=boxes.some(b=>!b.checked);boxes.forEach(b=>b.checked=shouldCheck)}
-$('#imageSelectAll').onclick=()=>toggleVisible('imageGrid');
-$('#fileSelectAll').onclick=()=>toggleVisible('fileGrid');
-$('#managerSelectAll').onclick=()=>toggleVisible('managerGrid');
-$('#imageDeleteSelected').onclick=()=>deleteIds(checked('imageGrid'));
-$('#fileDeleteSelected').onclick=()=>deleteIds(checked('fileGrid'));
-$('#managerDelete').onclick=()=>deleteIds(checked('managerGrid'));
-$('#imageSearch').addEventListener('input',renderImages);$('#fileSearch').addEventListener('input',renderFiles);$('#fileFilter').addEventListener('change',renderFiles);$('#managerSearch').addEventListener('input',renderManager);
-$('#noteSearch').addEventListener('input',renderNotes);$('#briefSearch').addEventListener('input',renderBriefs);
-function clearNoteForm(){editNote=null;$('#noteTitle').value='';$('#noteBody').value='';$('#noteFormTitle').textContent='Create a note';$('#noteSave').textContent='Save note';$('#noteCancel').hidden=true}
-function editNoteForm(id){const n=notes.find(x=>x.id===id);if(!n)return;editNote=id;$('#noteTitle').value=n.title;$('#noteBody').value=n.body;$('#noteFormTitle').textContent='Edit note';$('#noteSave').textContent='Update note';$('#noteCancel').hidden=false;go('notes');$('#noteTitle').focus()}
-$('#noteCancel').onclick=clearNoteForm;
-$('#noteSave').onclick=()=>{const title=$('#noteTitle').value.trim(),body=$('#noteBody').value.trim();if(!title&&!body){$('#noteStatus').textContent='Write a title or note first.';return}const old=notes.find(n=>n.id===editNote);const item={id:editNote||uid(),title:title||'Untitled note',body,created:old?.created||Date.now(),updated:Date.now()};const next=editNote?notes.map(n=>n.id===editNote?item:n):[item,...notes];if(save(NOTES,next)){notes=next;clearNoteForm();$('#noteStatus').textContent='Saved';renderAll();toast('Note saved.')}};
-function clearBriefForm(){editBrief=null;$('#briefTitle').value='';$('#briefBody').value='';$('#briefType').selectedIndex=0;$('#briefFormTitle').textContent='New design brief';$('#briefSave').textContent='Save brief';$('#briefCancel').hidden=true}
-function editBriefForm(id){const b=briefs.find(x=>x.id===id);if(!b)return;editBrief=id;$('#briefTitle').value=b.title;$('#briefBody').value=b.body;$('#briefType').value=b.type;$('#briefFormTitle').textContent='Edit design brief';$('#briefSave').textContent='Update brief';$('#briefCancel').hidden=false;go('design');$('#briefTitle').focus()}
-$('#briefCancel').onclick=clearBriefForm;
-$('#briefSave').onclick=()=>{const title=$('#briefTitle').value.trim(),body=$('#briefBody').value.trim(),type=$('#briefType').value;if(!title&&!body){$('#briefStatus').textContent='Add a project name or description.';return}const old=briefs.find(b=>b.id===editBrief);const item={id:editBrief||uid(),title:title||'Untitled project',type,body,created:old?.created||Date.now(),updated:Date.now()};const next=editBrief?briefs.map(b=>b.id===editBrief?item:b):[item,...briefs];if(save(BRIEFS,next)){briefs=next;clearBriefForm();$('#briefStatus').textContent='Saved';renderAll();toast('Design brief saved.')}};
-$('#darkTheme').onclick=()=>setTheme('dark');$('#lightTheme').onclick=()=>setTheme('light');
-function setTheme(t){document.body.classList.toggle('light',t==='light');try{localStorage.setItem(THEME,t)}catch{}toast(t==='light'?'Light theme enabled.':'Dark theme enabled.')}
-$('#exportData').onclick=()=>{const blob=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),notes,briefs},null,2)],{type:'application/json'});downloadBlob(blob,'extreme-studio-backup.json');toast('Notes and briefs exported.')};
-function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
-$('#clearAll').onclick=()=>ask('Delete all uploaded files, notes and design briefs? This cannot be undone.',async()=>{for(const a of assets)await dbOp('readwrite',s=>s.delete(a.id));assets=[];notes=[];briefs=[];save(NOTES,notes);save(BRIEFS,briefs);clearNoteForm();clearBriefForm();renderAll();toast('All app data deleted.')});
-$('#addFeature').onclick=()=>toast('Tip: use File Manager to find and manage all uploaded assets.');
-(async()=>{try{db=await openDB();assets=await dbOp('readonly',s=>s.getAll())||[]}catch(e){console.error(e);toast('Browser file storage could not start. Try a recent browser or run with VS Code Live Server.')}notes=load(NOTES);briefs=load(BRIEFS);try{if(localStorage.getItem(THEME)==='light')document.body.classList.add('light')}catch{}renderAll();if(location.hash&&$('#page-'+location.hash.slice(1)))go(location.hash.slice(1))})();
-</script>
+
+    <noscript>Extreme Studio needs JavaScript to work. Please turn it on in your browser.</noscript>
+
+    <!-- LAYER 1: Welcome screen -->
+    <section id="welcome-screen" aria-labelledby="welcome-title">
+        <div class="welcome-box">
+            <h1 id="welcome-title">Welcome to Extreme Studio</h1>
+            <p>Your Creative World Starts Here</p>
+            <button id="enter-studio" class="btn btn-primary" type="button">Enter Studio</button>
+        </div>
+    </section>
+
+    <!-- LAYER 2: Main app -->
+    <div id="app" class="app-shell">
+        <main id="studio" hidden>
+
+            <!-- Header + navigation -->
+            <header class="studio-header">
+                <div class="brand">
+                    <h1>Extreme Studio</h1>
+                    <p>Your Personal Creative Workspace</p>
+                </div>
+
+                <nav class="studio-nav" aria-label="Main menu">
+                    <button class="nav-btn" type="button" data-page="dashboard">Dashboard</button>
+                    <button class="nav-btn" type="button" data-page="logo-banner">Logo &amp; Banner Studio</button>
+                    <button class="nav-btn" type="button" data-page="social">Social Media Designs</button>
+                    <button class="nav-btn" type="button" data-page="portfolio">Portfolio Gallery</button>
+                    <button class="nav-btn" type="button" data-page="projects">Client Projects</button>
+                    <button class="nav-btn" type="button" data-page="income">Orders &amp; Income</button>
+                    <button class="nav-btn" type="button" data-page="timeline">Timeline</button>
+                </nav>
+            </header>
+
+            <div class="page-area">
+
+                <!-- PAGE 1: Dashboard -->
+                <section id="dashboard" class="page" aria-labelledby="dashboard-title">
+                    <div class="page-head">
+                        <h2 id="dashboard-title">Dashboard</h2>
+                        <p>Welcome to your creative studio!</p>
+                    </div>
+                    <div class="page-body">
+                        <div id="dashboard-stats" class="stats-grid"></div>
+                    </div>
+                </section>
+
+                <!-- PAGE 2: Logo & Banner Studio -->
+                <section id="logo-banner" class="page" aria-labelledby="logo-banner-title" hidden>
+                    <div class="page-head">
+                        <h2 id="logo-banner-title">Logo &amp; Banner Studio</h2>
+                        <p>Organise your logo and banner designs.</p>
+                    </div>
+                    <div class="page-body">
+                        <div class="panel category-group" data-category="Logo">
+                            <h3>Logo</h3>
+                            <div id="logo-list" class="design-list"></div>
+                        </div>
+                        <div class="panel category-group" data-category="Banner">
+                            <h3>Banner</h3>
+                            <div id="banner-list" class="design-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 3: Social Media Designs -->
+                <section id="social" class="page" aria-labelledby="social-title" hidden>
+                    <div class="page-head">
+                        <h2 id="social-title">Social Media Designs</h2>
+                        <p>Designs for every platform.</p>
+                    </div>
+                    <div class="page-body">
+                        <div class="panel category-group" data-category="Facebook">
+                            <h3>Facebook</h3>
+                            <div id="facebook-list" class="design-list"></div>
+                        </div>
+                        <div class="panel category-group" data-category="LinkedIn">
+                            <h3>LinkedIn</h3>
+                            <div id="linkedin-list" class="design-list"></div>
+                        </div>
+                        <div class="panel category-group" data-category="Instagram">
+                            <h3>Instagram</h3>
+                            <div id="instagram-list" class="design-list"></div>
+                        </div>
+                        <div class="panel category-group" data-category="Pinterest">
+                            <h3>Pinterest</h3>
+                            <div id="pinterest-list" class="design-list"></div>
+                        </div>
+                        <div class="panel category-group" data-category="YouTube">
+                            <h3>YouTube</h3>
+                            <div id="youtube-list" class="design-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 4: Portfolio Gallery -->
+                <section id="portfolio" class="page" aria-labelledby="portfolio-title" hidden>
+                    <div class="page-head">
+                        <h2 id="portfolio-title">Portfolio Gallery</h2>
+                        <p>Upload your work and show it by category.</p>
+                    </div>
+                    <div class="page-body">
+                        <form id="design-form" class="panel form-grid">
+                            <div class="field">
+                                <label for="design-title">Design title</label>
+                                <input id="design-title" type="text" placeholder="Design title" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="design-category">Category</label>
+                                <select id="design-category">
+                                    <option value="Logo">Logo</option>
+                                    <option value="Banner">Banner</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="design-image">Design image</label>
+                                <input id="design-image" type="file" accept="image/*" required>
+                            </div>
+
+                            <div class="field field-action">
+                                <button class="btn btn-primary" type="submit">Add Design</button>
+                            </div>
+                        </form>
+
+                        <div class="panel">
+                            <div class="field filter-field">
+                                <label for="gallery-category-filter">Show category</label>
+                                <select id="gallery-category-filter">
+                                    <option value="All">All</option>
+                                    <option value="Logo">Logo</option>
+                                    <option value="Banner">Banner</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div id="gallery" class="gallery-grid"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 5: Client Projects -->
+                <section id="projects" class="page" aria-labelledby="projects-title" hidden>
+                    <div class="page-head">
+                        <h2 id="projects-title">Client Projects</h2>
+                        <p>Client, order, amount, deadline and status.</p>
+                    </div>
+                    <div class="page-body">
+                        <form id="project-form" class="panel form-grid">
+                            <div class="field">
+                                <label for="client-name">Client name</label>
+                                <input id="client-name" type="text" placeholder="Client name" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="project-name">Project name</label>
+                                <input id="project-name" type="text" placeholder="Project name" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="project-type">Design type</label>
+                                <select id="project-type">
+                                    <option value="Logo">Logo</option>
+                                    <option value="Banner">Banner</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="project-start">Start date</label>
+                                <input id="project-start" type="date">
+                            </div>
+
+                            <div class="field">
+                                <label for="project-deadline">Deadline</label>
+                                <input id="project-deadline" type="date">
+                            </div>
+
+                            <div class="field">
+                                <label for="project-amount">Total amount</label>
+                                <input id="project-amount" type="number" min="0" placeholder="Total amount">
+                            </div>
+
+                            <div class="field">
+                                <label for="project-paid">Amount received</label>
+                                <input id="project-paid" type="number" min="0" value="0" placeholder="Amount received">
+                            </div>
+
+                            <div class="field">
+                                <label for="project-status">Status</label>
+                                <select id="project-status">
+                                    <option value="Pending">Pending</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Completed">Completed</option>
+                                </select>
+                            </div>
+
+                            <div class="field field-wide">
+                                <label for="project-notes">Project notes</label>
+                                <textarea id="project-notes" rows="3" placeholder="Project notes"></textarea>
+                            </div>
+
+                            <div class="field field-action field-wide">
+                                <button class="btn btn-primary" type="submit">Save Project</button>
+                            </div>
+                        </form>
+
+                        <div id="project-list" class="project-list"></div>
+                    </div>
+                </section>
+
+                <!-- PAGE 6: Orders & Income -->
+                <section id="income" class="page" aria-labelledby="income-title" hidden>
+                    <div class="page-head">
+                        <h2 id="income-title">Orders &amp; Income</h2>
+                        <p>Orders, income and unpaid amounts.</p>
+                    </div>
+                    <div class="page-body">
+                        <div id="income-summary" class="stats-grid">
+                            <div class="stat"><span class="stat-label">Total orders</span><strong id="total-orders"
+                                    class="stat-value">0</strong></div>
+                            <div class="stat"><span class="stat-label">Completed</span><strong id="completed-orders"
+                                    class="stat-value">0</strong></div>
+                            <div class="stat"><span class="stat-label">In progress</span><strong id="running-orders"
+                                    class="stat-value">0</strong></div>
+                            <div class="stat"><span class="stat-label">Income received</span><strong id="total-income"
+                                    class="stat-value">0</strong></div>
+                            <div class="stat"><span class="stat-label">Amount due</span><strong id="total-due"
+                                    class="stat-value">0</strong></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 7: Timeline -->
+                <section id="timeline" class="page" aria-labelledby="timeline-title" hidden>
+                    <div class="page-head">
+                        <h2 id="timeline-title">Timeline</h2>
+                        <p>Start date, deadline and finish date of every project.</p>
+                    </div>
+                    <div class="page-body">
+                        <div id="timeline-list" class="timeline-list"></div>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="studio-footer">
+                <p>Extreme Studio</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript loads last, after all page content exists -->
+    <script src="script.js"></script>
 </body>
+
 </html>
